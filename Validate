@@ -1,0 +1,41 @@
+public class Validate{
+  public static boolean validate(String card){
+    int i; //если 0, то чёт, если 1, то нечёт
+    int a;
+    int b;
+    int sum = 0;
+    i = card.length()%2;//1
+    int card1[];
+    card1 = new int[17];
+    int itr = 0;
+    System.out.println(card.length());
+    for (itr = 0; itr<card.length(); itr++){
+      card1[itr]=card.charAt(itr)-48;
+      System.out.println(card1[itr]);
+    }
+
+    itr = card.length();
+    if (itr%2==0){
+    b=0;
+    }
+    else b=1;
+
+    for (itr = card.length(); itr>=0; itr--){  
+      if(itr%2==b){
+        card1[itr]=card1[itr]*2;
+        if(card1[itr]>9){
+          a=card1[itr]%10;
+          card1[itr]=a+1;
+        }
+      }
+      sum=sum+card1[itr];
+    }
+    System.out.println(sum);
+    sum=sum%10;
+System.out.println(sum);
+    if (sum==0){
+      return true;
+    }
+    else return false;
+  }
+}
